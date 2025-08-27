@@ -718,7 +718,9 @@ public class LLM {
                                                             currentToolCall.function = toolCall.function;
                                                         }
                                                         if (Objects.nonNull(toolCall.function.arguments)) {
-                                                            currentToolCall.function.arguments += toolCall.function.arguments;
+                                                            if (!currentToolCall.function.arguments.equals(toolCall.function.arguments)) {
+                                                                currentToolCall.function.arguments += toolCall.function.arguments;
+                                                            }
                                                         }
                                                     }
                                                     openToolCallsMap.put(toolCall.index, currentToolCall);
