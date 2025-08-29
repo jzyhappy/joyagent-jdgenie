@@ -158,6 +158,7 @@ public class MultiAgentServiceImpl implements IMultiAgentService {
     private AgentRequest buildAgentRequest(GptQueryReq req) {
         AgentRequest request = new AgentRequest();
         request.setRequestId(req.getTraceId());
+        request.setSessionId(req.getSessionId());
         request.setErp(req.getUser());
         request.setQuery(req.getQuery());
         request.setAgentType(req.getDeepThink() == 0 ? 5: 3);
